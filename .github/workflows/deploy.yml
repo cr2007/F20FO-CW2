@@ -58,13 +58,29 @@ jobs:
         run: |
           mkdir dist
           typst c main.typ dist/coursework.pdf
-      
+
+      - name: Create index.html redirect
+        run: |
+          cat > dist/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="refresh" content="0; url=coursework.pdf" />
+              <title>Redirecting…</title>
+            </head>
+            <body>
+              <p>Redirecting to <a href="coursework.pdf">coursework.pdf</a>…</p>
+            </body>
+          </html>
+          EOF
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-    # Deployment job
+  # Deployment job
   deploy:
     environment:
       name: github-pages
