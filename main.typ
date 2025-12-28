@@ -22,9 +22,9 @@
 #text(size: 14pt)[
   #data.courseworkTitle
 
-  #data.studentFirstName #data.studentLastName \
+  #data.studentFirstName #data.studentLastName (#link(strfmt("mailto:{}?subject=F20FO%20Coursework%202%20-%20CSK", email))[#data.studentEmail]) \
   BSc. Computer Science (Hons.) \
-  #link(strfmt("mailto:{}", email))[#email] \
+  #data.studentID \
 ]
 \
 
@@ -32,9 +32,9 @@
 
 #outline(indent: 1em)
 
-\ #align(center, text(size: 20pt, strong[
-  OneDrive Video Link: #link(strfmt("F20FO-CW1_{}.mp4", data.studentEmail))
-]))
+// \ #align(center, text(size: 20pt, strong[
+//   OneDrive Video Link: Forensic Images
+// ]))
 
 #line()
 
@@ -83,6 +83,9 @@ The steps for creating a verifiable forensic image of the evidence media using F
 
   This process resulted in the creation of an EnCase Image (`.E01`) file, serving as a forensic image of the evidence
   disk, with associated Hash values stored for verification.
+
+  The imaging process was completed within
+  approximately 15 minutes.
   ],
   figure(
     caption: "The results page in FTK Imager containing the Hash values after the imaging process.",
