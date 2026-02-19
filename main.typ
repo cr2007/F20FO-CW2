@@ -70,6 +70,7 @@ The steps for creating a verifiable forensic image of the evidence media using F
 
 #grid(
   columns: 2,
+  column-gutter: 1em,
   [
   + Open FTK Imager
   + Navigate to File > Create Disk Image
@@ -104,7 +105,7 @@ were undertaken before creating a forensic image using dd for windows.
 
 === VMware-VDiskManager
 
-The initial task involved merging the split-up vmdk files into a single file using the vmware-diskmanager command in
+The initial task involved merging the split-up vmdk files into a single file using the `vmware-diskmanager` command in
 VMware. This command is accessible in VMWare Fusion and VMWare Workstation. For VMWare Player, a separate utility can be
 obtained from the VMware website. The process, outlined by #cite(<RN168>, form: "prose") , proceeded as follows:
 
@@ -114,7 +115,9 @@ obtained from the VMware website. The process, outlined by #cite(<RN168>, form: 
 + Open Command Prompt and navigate to the directory containing the VM disk files
 #enum.item[To merge the files into a single .vmdk file, execute the following command in the terminal:
 ```sh
-"C:\Program Files (x86)\VMware\VMware Workstation\vmware-diskmanager.exe" -r "Path/to/File.vmdk" -t 0 MyNewImage.vmdk
+"C:\Program Files (x86)\VMware\VMware Workstation\vmware-diskmanager.exe" `
+-r "Path/to/File.vmdk" `
+-t 0 MyNewImage.vmdk
 ```]
 
 + The new file will be created.
@@ -278,6 +281,7 @@ script, with the output redirected to the '*id_rsa.hash*' file.
 
 #grid(
   columns: 2,
+  column-gutter: 0.5em,
   [During the forensic analysis, encountering issues with OSForensics was very common. Certain sections or functionalities
     of the application would always trigger errors, leading to the generation of debug reports and automatic closure of the
     app, as illustrated by the screenshot.],
