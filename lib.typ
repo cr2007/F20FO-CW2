@@ -2,6 +2,8 @@
 
 #let data = yaml("metadata.yml")
 
+#let divider() = [\ #line()]
+
 #let template(doc) = [
   #set page(
     header: context {
@@ -38,6 +40,11 @@
   }
 
   #show figure: set block(breakable: true)
+
+  #show table.cell.where(y: 0): it => {
+    set text(white)
+    strong(it)
+  }
 
   #doc
 ]

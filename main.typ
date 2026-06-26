@@ -1,7 +1,9 @@
-#import "lib.typ": template
-#import "@preview/codly:1.2.0": *
+#import "lib.typ": template, divider
+
+#import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.3": *
 #import "@preview/oxifmt:0.2.1": strfmt
+
 #show: codly-init.with()
 #codly(languages: codly-languages)
 
@@ -14,6 +16,7 @@
 )
 #set line(length: 100%)
 #set rect(stroke: 0.25pt)
+#set enum(numbering: "1.a.")
 
 #show: template.with()
 
@@ -36,7 +39,7 @@
 //   OneDrive Video Link: Forensic Images
 // ]))
 
-#line()
+#divider()
 
 #pagebreak()
 
@@ -49,7 +52,7 @@ forensic analysis using two designated tools.
 This report documents the imaging process, establishes the chain of custody, and outlines the analysis performed on the
 provided digital evidence.
 
-#line()
+#divider()
 
 = Forensic Imaging Process
 
@@ -65,8 +68,6 @@ virtual disk files. FTK Imager streamlines the process by automatically gatherin
 designated directory when the base Virtual Disk file is chosen as the source path, simplifying the procedure.
 
 The steps for creating a verifiable forensic image of the evidence media using FTK Imager are as follows:
-
-#set enum(numbering: "1.a.")
 
 #grid(
   columns: 2,
@@ -142,12 +143,12 @@ process involved:
 
 #figure(
   caption: "A screenshot of the dd tool being used in progress to create a forensic image of a disk image.",
-  rect(stroke: 0.25pt, image("images/dd-for-windows-Screenshot.png")),
+  rect(image("images/dd-for-windows-Screenshot.png")),
 )
 
 The imaging process using *dd for windows* took approximately 2 hours to complete.
 
-#line()
+#divider()
 
 = Forensic Analysis
 
@@ -198,7 +199,7 @@ documents:
   Office hashes)
 #figure(
   caption: "Command Prompt output of the John the Ripper program",
-  rect(stroke: 0.25pt, image(height: 4.5cm, "images/John_The_Ripper-Output.png")),
+  rect(image(height: 4.5cm, "images/John_The_Ripper-Output.png")),
 ) \
 
 Analysis of the cracked passwords revealed that they corresponded to specific individuals' contributions to the
@@ -212,11 +213,6 @@ Further analysis revealed a diverse range of devices used for capturing the imag
 available either through the file names or within the file metadata.
 
 The brands and models identified in the images are as follows:
-
-#show table.cell.where(y: 0): it => {
-  set text(white)
-  strong(it)
-}
 
 #table(
   columns: (auto, 1fr),
@@ -242,7 +238,7 @@ The brands and models identified in the images are as follows:
 The images primarily consisted of outdoor scenery, a cup full of candy, and a teacup, captured from various
 perspectives. Additionally, numerous random images of books, roads, and outdoor scenes were observed.
 
-\ #line()
+#divider()
 
 == Bash History
 
@@ -258,7 +254,7 @@ perspectives. Additionally, numerous random images of books, roads, and outdoor 
   ],
   figure(
     caption: [A screenshot of the contents of the '*.bash_history*' file.],
-    rect(stroke: 0.25pt, image("images/Bash_History_File_Contents.png")),
+    rect(image("images/Bash_History_File_Contents.png")),
   ),
 )
 
@@ -274,7 +270,7 @@ Additionally, it was observed that the user generated an *RSA key pair* with a k
 attempted to decipher the contents of the RSA key using John the Ripper, specifically via the '*ssh2john*' Python
 script, with the output redirected to the '*id_rsa.hash*' file.
 
-\ #line()
+#divider()
 #pagebreak()
 
 == Issues Faced
@@ -291,7 +287,7 @@ script, with the output redirected to the '*id_rsa.hash*' file.
   ),
 )
 
-\ #line()
+#divider()
 
 = Conclusion
 
@@ -311,7 +307,7 @@ investigation. The detailed documentation of the imaging process and the compreh
 the forensic integrity of the evidence, ensuring its admissibility in any legal proceedings. The insights gained from
 this analysis will undoubtedly prove instrumental in the progression of the case.
 
-\ #line()
+#divider()
 #pagebreak()
 
 = Appendix
@@ -331,7 +327,7 @@ this analysis will undoubtedly prove instrumental in the progression of the case
   [April 2, 2024], [08:45], [Setup New Case in OSForensics],
 )
 
-\ #line()
+#divider()
 
 // --------------------------------
 
